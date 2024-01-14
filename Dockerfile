@@ -28,6 +28,7 @@ USER atuin
 ENV TZ=Etc/UTC
 ENV RUST_LOG=atuin::api=info
 ENV ATUIN_CONFIG_DIR=/config
+ENV ATUIN_DB_URI="sqlite:///var/atuin/atuin.db"
 
 COPY --from=builder /app/target/release/atuin-server-sqlite-unofficial /usr/local/bin
 ENTRYPOINT ["/usr/local/bin/atuin-server-sqlite-unofficial"]
